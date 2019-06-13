@@ -2,6 +2,7 @@
 let cartInfo;
 let cartItems;
 let cartValue;
+let firstImage = cartItems[0].children[0].children[0].children[0].src
 
 //fetch values from shopping cart
 
