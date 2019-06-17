@@ -1,29 +1,23 @@
-
-let cartInfo;
 let cartItems;
+let cartSize;
 let cartValue;
-let firstImage = cartItems[0].children[0].children[0].children[0].src
+let cartImages = [];
 
 //fetch values from shopping cart
 
 fetch('https://www.marmot.com/cart')
   .then(function(response) {
-    console.log(response);
     return response.text();
   }).then(function(data) {
 
- 
-    console.log(JSON.stringify(data));
-    cartInfo = JSON.stringify(data);
-    
-    let retrieveItems = function($cart){
-      return $cart.find(".cart-row");
-    };
-    
-    let retrieveTotal = function($cart){
-      return $cart.find(".order-value");
+    cartItems = $(data).find(".cart-row")
+    cartSize = cartItems.length
+    cartValue = $(data).find(".order-value")[0].innerHTML;
+
+    for (let i = 0; i < cartSize; i++) { 
+      cartImages.push(cartItems[i].children[0].children[0].children[0].src)
     }
-    cartItems = retrieveItems($(data));
-    cartValue = retrieveTotal($(data))[0].innerHTML;
 
   });
+
+    
