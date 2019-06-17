@@ -17,7 +17,18 @@ fetch('https://www.marmot.com/cart')
     for (let i = 0; i < cartSize; i++) { 
       cartImages.push(cartItems[i].children[0].children[0].children[0].src)
     }
-
   });
+  
+//trigger
+
+let triggerCount = 0;
+$(window).scroll(function() {
+	let pageHeight = $(document).height();
+	let scrollPosition = $(window).height() + $(window).scrollTop();
+	if (((pageHeight - scrollPosition) < (pageHeight * 0.1)) && triggerCount === 0) {
+	  triggerCount += 1
+	    alert("hey!")
+	}
+});
 
     
