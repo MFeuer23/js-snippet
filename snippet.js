@@ -32,10 +32,11 @@ $(window).scroll(function() {
     $("body").append(
       $("<div class='overlay'></div>"),
       $("<div class='modal'></div>").append(
-        $("<div class='modal-content'></div>").text("You still have " + cartSize + " items in your cart!").append(
+        $("<div class='modal-content'></div>").append(
+          $("<div class='modal-text'></div>").text("You still have " + cartSize + " items in your cart!"),
           $("<div class='cart-images'></div>"),
           $("<div class='cart-price'></div>").text("Checkout now for only " + cartValue),
-          $("<button class='go-to-cart'></button>").text("GO TO CART"),
+          $("<button class='go-to-cart' onclick=window.location='https://www.marmot.com/cart'></button>").text("GO TO CART"),
           $("<button class='close-modal'></button>").text("X")
         )
       )
@@ -46,18 +47,114 @@ $(window).scroll(function() {
         "<img src="+ cartImages[i] +">"
       )
     }
-    //invoke styling function
-    // return addStyling();
+
+    return addStyling();
 	} 
 	
 	//the overlay should trigger multiple times if dismissed (reset trigger count if user scrolls back up)
-// 	if (((pageHeight - scrollPosition) > pageHeight * 0.1) && triggerCount !== 0){
-// 	  triggerCount = 0
-// 	}
+	if (((pageHeight - scrollPosition) > pageHeight * 0.1) && triggerCount !== 0){
+	  triggerCount = 0
+	}
 });
 
 //logo image: $(document).find(".logo-image")[0].src
 //font header: font-family: ars_maquette_problack,sans-serif;
 //font regular text: font-family: ars_maquette_proregular, sans-serif;
 
+function addStyling() {
+
+    $(".overlay").css({
+      "position": "fixed",
+      "top": "0",
+      "left": "0",
+      "width": "100%",
+      "height": "100%",
+      "background": "rgba(0,0,0,0.9)",
+      "z-index": "999"
+    });
+
+    $(".modal").css({
+      "position": "fixed",
+      "padding": "1em",
+      "outline": "0",
+      "background": "#fff",
+      "width": "30em",
+      "max-width": "100%",
+      "top": "50%",
+      "transform": "translateY(-50%)",
+      "left": "50%",
+      "margin-left": "-15rem",
+      "border": "1px solid #cbcbcb",
+      "max-height": "100%",
+      "overflow-y": "auto",
+      "z-index": "9999"
+    });
     
+    $(".cart-images").css({
+      "display": "block"
+    });
+
+    $(".modal-content").css({
+      "align-items": "center",
+      "justify-content": "center",
+      "flex-flow": "row wrap",
+      "position": "relative",
+      "padding": "35px",
+    });
+    
+    $(".modal-text").css({
+      "font-family": "ars_maquette_problack, sans-serif",
+      "display": "flex",
+      "flex-flow": "row wrap",
+      "position": "relative",
+      "padding": "35px"
+    });
+
+    $("div.modal-price").css({
+      "display": "block",
+      "font-size": "24px",
+      "line-height": "1.25",
+      "text-align": "center"
+    });
+
+    $(".go-to-cart").hover(function() {
+      $(this).css({
+        "background": "#cc0001",
+        "border": "1px solid #cc0001",
+        "color": "#fff"
+      }); 
+    }, function(){
+      $(this).css({
+        "background": "#fff",
+        "border": "1px solid #000",
+        "color": "#000"
+      }); 
+    });
+    
+    $(".go-to-cart").css({
+      "background": "#fff",
+      "border": "1px solid #000",
+      "font-size": "1rem",
+      "text-transform": "uppercase",
+      "text-align": "center",
+      "padding": "15px 30px",
+      "margin-top": "25px",
+      "font-family": "ars_maquette_problack, sans-serif",
+      "width": "50%"
+    });
+
+    $(".close-modal").css({
+      "position": "absolute",
+      "top": "0",
+      "right": "0"
+    });
+
+    return closeModal();
+}
+
+function closeModal() {
+  $(".close-modal").click(function() {
+    $(".modal").remove();
+    $(".overlay").remove();
+  });
+}
