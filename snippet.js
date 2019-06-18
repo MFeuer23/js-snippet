@@ -27,7 +27,6 @@ $(window).scroll(function() {
 	let scrollPosition = $(window).height() + $(window).scrollTop();
 	if (((pageHeight - scrollPosition) < (pageHeight * 0.1)) && triggerCount === 0 && $(".overlay").length === 0) {
 	  triggerCount += 1;
-	  alert("hey!");
   
     $("body").append(
       $("<div class='overlay'></div>"),
@@ -75,11 +74,11 @@ function addStyling() {
 
     $(".modal").css({
       "position": "fixed",
-      "padding": "1em",
+      "padding": "2em",
       "outline": "0",
       "background": "#fff",
-      "width": "30em",
-      "max-width": "100%",
+      "width": "40em",
+      "max-width": "70%",
       "top": "50%",
       "left": "50%",
       "overflow-y": "auto",
@@ -98,18 +97,19 @@ function addStyling() {
       "flex-flow": "row wrap",
       "position": "relative",
       "padding": "35px",
+      "text-align": "center"
     });
     
     $(".modal-text").css({
       "font-family": "ars_maquette_problack, sans-serif",
-      "display": "flex",
+      "display": "inline-block",
       "flex-flow": "row wrap",
       "position": "relative",
       "padding": "35px"
     });
 
     $("modal-price").css({
-      "display": "flex",
+      "display": "inline-block",
       "font-size": "24px",
       "line-height": "1.25",
       "text-align": "center"
