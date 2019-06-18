@@ -89,14 +89,14 @@ function addStyling() {
     });
     
     $(".cart-images").css({
-      "display": "block"
+      "display": "block",
     });
 
     $(".modal-content").css({
       "align-items": "center",
       "justify-content": "center",
       "position": "relative",
-      "padding": "35px",
+      "padding": "8px",
       "text-align": "center"
     });
     
@@ -105,10 +105,13 @@ function addStyling() {
       "display": "inline-block",
       "flex-flow": "row wrap",
       "position": "relative",
-      "padding": "35px"
+      "padding": "30px 90px 20px",
+      "font-size": "2em",
+      "color": "#cc0001"
     });
 
     $("modal-price").css({
+      "font-family": "ars_maquette_problack, sans-serif",
       "display": "inline-block",
       "font-size": "24px",
       "line-height": "1.25",
