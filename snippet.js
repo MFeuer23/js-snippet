@@ -10,12 +10,12 @@ fetch('https://www.marmot.com/cart')
     return response.text();
   }).then(function(data) {
 
-    cartItems = $(data).find(".cart-row")
-    cartSize = cartItems.length
+    cartItems = $(data).find(".cart-row");
+    cartSize = cartItems.length;
     cartValue = $(data).find(".order-value")[0].innerHTML;
 
     for (let i = 0; i < cartSize; i++) { 
-      cartImages.push(cartItems[i].children[0].children[0].children[0].src)
+      cartImages.push(cartItems[i].children[0].children[0].children[0].src);
     }
   });
   
@@ -45,7 +45,7 @@ $(window).scroll(function() {
     for (let i = 0; i < cartSize; i++) {
       $(".cart-images").append(
         "<img src="+ cartImages[i] +">"
-      )
+      );
     }
 
     return addStyling();
@@ -54,7 +54,7 @@ $(window).scroll(function() {
 	//the overlay should trigger multiple times if dismissed (reset trigger count if user scrolls back up)
 	
 	if (((pageHeight - scrollPosition) > pageHeight * 0.1) && triggerCount !== 0){
-	  triggerCount = 0
+	  triggerCount = 0;
 	}
 });
 
@@ -149,7 +149,8 @@ function addStyling() {
     $(".close-modal").css({
       "position": "absolute",
       "top": "10px",
-      "right": "10px"
+      "right": "10px",
+      "font-size": "16px"
     });
 
     return closeModal();
