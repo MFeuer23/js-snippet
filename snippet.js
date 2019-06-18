@@ -18,7 +18,7 @@ fetch('https://www.marmot.com/cart')
     cartRows = cartItems.length;
     cartValue = $(data).find(".order-value")[0].innerHTML;
     
-    cartQty === 1 ? itemPlural = "item" : itemPlural = "items";
+    cartQty === "1" ? itemPlural = "item" : itemPlural = "items";
 
     for (let i = 0; i < cartRows; i++) { 
       cartImages.push(cartItems[i].children[0].children[0].children[0].src);
