@@ -70,7 +70,7 @@ function addStyling() {
       "width": "100%",
       "height": "100%",
       "background": "rgba(0,0,0,0.9)",
-      "z-index": "999"
+      "z-index": "100"
     });
 
     $(".modal").css({
@@ -81,13 +81,11 @@ function addStyling() {
       "width": "30em",
       "max-width": "100%",
       "top": "50%",
-      "transform": "translateY(-50%)",
       "left": "50%",
-      "margin-left": "-15rem",
-      "border": "1px solid #cbcbcb",
-      "max-height": "100%",
       "overflow-y": "auto",
-      "z-index": "9999"
+      "z-index": "101",
+      "max-height": "calc(100% - 100px)",
+      "transform": "translate(-50%, -50%)"
     });
     
     $(".cart-images").css({
@@ -110,8 +108,8 @@ function addStyling() {
       "padding": "35px"
     });
 
-    $("div.modal-price").css({
-      "display": "block",
+    $("modal-price").css({
+      "display": "flex",
       "font-size": "24px",
       "line-height": "1.25",
       "text-align": "center"
