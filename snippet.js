@@ -33,8 +33,9 @@ $(window).scroll(function() {
       $("<div class='modal'></div>").append(
         $("<div class='modal-content'></div>").append(
           $("<div class='modal-text'></div>").text("You still have " + cartSize + " items in your cart!"),
-          $("<div class='cart-images'></div>"),
+          
           $("<div class='cart-price'></div>").text("Checkout now for only " + cartValue),
+          $("<div class='cart-images'></div>"),
           $("<button class='go-to-cart' onclick=window.location='https://www.marmot.com/cart'></button>").text("GO TO CART"),
           $("<button class='close-modal'></button>").text("X")
         )
@@ -110,8 +111,8 @@ function addStyling() {
       "color": "#cc0001"
     });
 
-    $("modal-price").css({
-      "font-family": "ars_maquette_problack, sans-serif",
+    $(".cart-price").css({
+      "font-family": "ars_maquette_proregular, sans-serif",
       "display": "inline-block",
       "font-size": "24px",
       "line-height": "1.25",
