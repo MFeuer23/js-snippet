@@ -2,6 +2,7 @@ let cartItems;
 let cartSize;
 let cartValue;
 let cartImages = [];
+let itemPlural;
 
 //fetch values from shopping cart
 
@@ -13,6 +14,8 @@ fetch('https://www.marmot.com/cart')
     cartItems = $(data).find(".cart-row");
     cartSize = cartItems.length;
     cartValue = $(data).find(".order-value")[0].innerHTML;
+    
+    cartSize === 1 ? itemPlural = "item" : itemPlural = "items";
 
     for (let i = 0; i < cartSize; i++) { 
       cartImages.push(cartItems[i].children[0].children[0].children[0].src);
@@ -25,14 +28,14 @@ let triggerCount = 0;
 $(window).scroll(function() {
 	let pageHeight = $(document).height();
 	let scrollPosition = $(window).height() + $(window).scrollTop();
-	if (((pageHeight - scrollPosition) < (pageHeight * 0.1)) && triggerCount === 0 && $(".overlay").length === 0) {
+	if (((pageHeight - scrollPosition) < (pageHeight * 0.1)) && triggerCount === 0 && $(".overlay").length === 0 && cartSize > 0) {
 	  triggerCount += 1;
   
     $("body").append(
       $("<div class='overlay'></div>"),
       $("<div class='modal'></div>").append(
         $("<div class='modal-content'></div>").append(
-          $("<div class='modal-text'></div>").text("You still have " + cartSize + " items in your cart!"),
+          $("<div class='modal-text'></div>").text("You still have " + cartSize + " " + itemPlural + " in your cart!"),
           
           $("<div class='cart-price'></div>").text("Checkout now for only " + cartValue),
           $("<div class='cart-images'></div>"),
@@ -66,7 +69,7 @@ function addStyling() {
       "left": "0",
       "width": "100%",
       "height": "100%",
-      "background": "rgba(0,0,0,0.9",
+      "background": "rgba(0,0,0,0.9)",
       "z-index": "100"
     });
 
@@ -89,7 +92,7 @@ function addStyling() {
     $(".cart-images").css({
       "display": "block",
       "overflow-y": "auto",
-      "max-height": "120px"
+      "height": "120px"
     });
 
     $(".modal-content").css({
