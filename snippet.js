@@ -52,14 +52,11 @@ $(window).scroll(function() {
 	} 
 	
 	//the overlay should trigger multiple times if dismissed (reset trigger count if user scrolls back up)
+	
 	if (((pageHeight - scrollPosition) > pageHeight * 0.1) && triggerCount !== 0){
 	  triggerCount = 0
 	}
 });
-
-//logo image: $(document).find(".logo-image")[0].src
-//font header: font-family: ars_maquette_problack,sans-serif;
-//font regular text: font-family: ars_maquette_proregular, sans-serif;
 
 function addStyling() {
 
@@ -69,7 +66,7 @@ function addStyling() {
       "left": "0",
       "width": "100%",
       "height": "100%",
-      "background": "rgba(0,0,0,0.9)",
+      "background": "rgba(0,0,0,0.9",
       "z-index": "100"
     });
 
@@ -80,7 +77,7 @@ function addStyling() {
       "max-width": "70%",
       "top": "50%",
       "left": "50%",
-      "overflow-y": "auto",
+
       "z-index": "101",
       "max-height": "70%",
       "transform": "translate(-50%, -50%)",
@@ -91,6 +88,8 @@ function addStyling() {
     
     $(".cart-images").css({
       "display": "block",
+      "overflow-y": "auto",
+      "max-height": "120px"
     });
 
     $(".modal-content").css({
@@ -106,7 +105,7 @@ function addStyling() {
       "display": "inline-block",
       "flex-flow": "row wrap",
       "position": "relative",
-      "padding": "30px 90px 20px",
+      "padding": "20px 90px 10px",
       "font-size": "2em",
       "color": "#cc0001"
     });
@@ -114,9 +113,10 @@ function addStyling() {
     $(".cart-price").css({
       "font-family": "ars_maquette_proregular, sans-serif",
       "display": "inline-block",
-      "font-size": "24px",
+      "font-size": "14px",
       "line-height": "1.25",
-      "text-align": "center"
+      "text-align": "center",
+      "padding-bottom": "10px"
     });
 
     $(".go-to-cart").hover(function() {
@@ -136,19 +136,20 @@ function addStyling() {
     $(".go-to-cart").css({
       "background": "#fff",
       "border": "1px solid #000",
-      "font-size": "1rem",
+      "font-size": "16px",
       "text-transform": "uppercase",
       "text-align": "center",
       "padding": "15px 30px",
-      "margin-top": "25px",
+      "margin-top": "20px",
+      "margin-bottom": "15px",
       "font-family": "ars_maquette_problack, sans-serif",
       "width": "50%"
     });
 
     $(".close-modal").css({
       "position": "absolute",
-      "top": "0",
-      "right": "0"
+      "top": "10px",
+      "right": "10px"
     });
 
     return closeModal();
