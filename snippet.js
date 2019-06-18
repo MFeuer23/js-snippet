@@ -74,17 +74,18 @@ function addStyling() {
 
     $(".modal").css({
       "position": "fixed",
-      "padding": "2em",
-      "outline": "0",
-      "background": "#fff",
+      "background": "#f7f7f7",
       "width": "40em",
       "max-width": "70%",
       "top": "50%",
       "left": "50%",
       "overflow-y": "auto",
       "z-index": "101",
-      "max-height": "calc(100% - 100px)",
-      "transform": "translate(-50%, -50%)"
+      "max-height": "70%",
+      "transform": "translate(-50%, -50%)",
+      "background-image": "url(https://ctl.s6img.com/society6/img/ZerOObfBLR6ctzx6xwN6vv9GdCs/w_700/prints/~artwork/s6-original-art-uploads/society6/uploads/misc/b58ffb18b91a4d3ea2720dafb410defd/~~/faded-white-flowers-on-the-side-of-a-mountain-prints.jpg?wait=0&attempt=0)", 
+      "background-repeat": "no-repeat center bottom",
+      "background-position": "center"
     });
     
     $(".cart-images").css({
@@ -94,7 +95,6 @@ function addStyling() {
     $(".modal-content").css({
       "align-items": "center",
       "justify-content": "center",
-      "flex-flow": "row wrap",
       "position": "relative",
       "padding": "35px",
       "text-align": "center"
