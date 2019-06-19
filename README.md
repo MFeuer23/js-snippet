@@ -1,4 +1,4 @@
-# js-snippet-marmot
+# JS-snippet
 
 Go to [www.marmot.com](https://www.marmot.com/) and add at least 2 products to your cart. Then return to the home page.
 
